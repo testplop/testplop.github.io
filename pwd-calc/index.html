@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/pwd-calc/assets/style.css">
+    <title>PoC Passwd Calc PWA</title>
+
+    <link rel="icon" href="/pwd-calc/favicon.ico" sizes="16x16" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/pwd-calc/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/pwd-calc/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/pwd-calc/favicon-16x16.png">
+    <link rel="manifest" href="/pwd-calc/manifest.json">
+    <meta name="theme-color" content="#000000" />
+    <title>PoC Passwd Calc PWA</title>
+  </head>
+  <body>
+    <script src="/pwd-calc/assets/index.js"></script>
+    <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker
+        .register('service-worker.js')
+        .then(() => {
+          console.log('Service worker registered');
+        })
+        .catch(err => {
+          console.log('Service worker registration failed: ' + err);
+        });
+    }
+    </script>
+    <div class="main">
+      <h1>PoC Passwd Calc PWA</h1>
+      <form id="main-form">
+        <input type="text" placeholder="Enter GCenter URL"/>
+        <button class="button">Generate</button>
+      </form>
+      <div id="result"></div>
+      <div id="error"></div>
+    </div>
+  </body>
+</html>
